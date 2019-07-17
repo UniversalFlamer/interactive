@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html>
+
   <head>
       <title>My Own Website</title>
   </head>
     <link rel="stylesheet" type="text/css" href="src/style.css">
     <link rel="icon" type="image/png" href="star_icon.png">
-  <body>
+  <body >
       
       
-
+      <div class="btn">
+          <button class="button" style="width: 10%;" onclick="moveStart();">Move!</button>
+          <button class="button_stop" style="width:10%" onclick="clearInterval(timer);">Stop!</button>
+          <button style="width:10%" onclick="changeBackground(Math.random()*255,Math.random()*255,Math.random()*255);">Color switch!</button>
+          <button style="width:10%" onclick="changeBackground(255,255,255);">Back to white!</button>
+      </div>
       <div class="grid">
           
           <div class="flip_hello">
-          <div class="hello_contents">Bonjour!</div>
+              <div class="hello_contents">
+                  <span id="text2" style="top: 0px; left: 0px;">Bonjour!</span>
+              </div>
           <div class="hello_contents">Welcome to my website for ART S167, Introduction to Interactive Design: World Wide Web.<br> You can call me Lee.</div>
           </div>
           
           <div class="flipbox1">
-            <div class="side1">Readings</div>
+              <div class="side1" ><span id="text" style="top: 240px; left: 240px;">Readings</span></div>
             <div class="side1"><a href="readings/reading-response-a.html">Reading Response A</a></div>
           </div>
           
@@ -50,4 +58,91 @@
       
       </div>   
   </body>
+        <script>
+        var speed_x = Math.random()*5+2;
+        var speed_y = Math.random()*5+2;
+        var timer;
+        var background_timer;
+        function moveStart()
+            {
+                
+                  timer = setInterval(toNextPosition,10,"text",500-68.59,485);
+            //    timer =  randomWalk("text",10,500-68,485);
+             //   randomWalk("text2",10,500-68,485);
+            }
+            
+//        function moveOneStep()
+//        {
+//        var speed_x = Math.random()*10-5;
+//        var speed_y = Math.random()*10-5;
+//        console.log("RUNING START");
+//        toNextPosition("text",400,400,speed_x,speed_y);
+//        }
+        
+        function randomWalk(idname,frequency,width,height)
+            {
+                var speed_x = Math.random()*5+2;
+                var speed_y = Math.random()*5+2;
+                return setInterval(toNextPosition,frequency,idname,width,height);
+            }
+            
+        function toNextPosition(idname,width,height)
+        {
+        //var element = document.getElementById(idname);
+        //console.log(element);
+        //var speed_x = Math.random()*10-5;
+        //var speed_y = Math.random()*10-5;
+        var left = parseInt(document.getElementById(idname).style.left);
+        var top = parseInt(document.getElementById(idname).style.top);
+        //console.log(top);
+        if(left <= 1 || left >= width-1) //Bounce back
+            {
+                speed_x = -speed_x;
+                console.log("Speed X: "+ speed_x);
+                console.log("Left: "+left);
+            }
+        if(top <= 1  || top >= height-1)
+            {
+                speed_y = -speed_y;
+                console.log("Speed Y: "+ speed_y);
+                console.log("Top: "+top);
+            }
+
+//        if(left + speed_x < 0)
+//            {
+//                document.getElementById(idname).style.left = "1.5px";
+//            }
+//        else if(left + speed_x > width)
+//            {
+//                document.getElementById(idname).style.left = (width-1.5)+'px';
+//            }
+//        else
+//            {
+                document.getElementById(idname).style.left = (left + speed_x)+'px';
+               // console.log("LEFT SET "+(left+speed_x)+'px');
+//            }
+
+//        if(top + speed_y < 0)
+//            {
+//                document.getElementById(idname).style.top = "1.5px";
+//            }
+//        else if(top + speed_y > height)
+//            {
+//                document.getElementById(idname).style.top = (height-1.5)+'px';
+//            }
+//        else
+//            {
+                document.getElementById(idname).style.top = (top + speed_y)+'px';
+              //  console.log("TOP SET "+(top+speed_y)+'px');
+//            }    
+        }
+//        function changeBackground()
+//            {
+//                document.body.style.backgroundColor = "rgb("+Math.random()*255+","+Math.random()*255+","+Math.random()*255+")";
+//            }
+        function changeBackground(r,g,b)
+            {
+                document.body.style.backgroundColor = "rgb("+r+","+g+","+b+")";
+            }
+    </script>
 </html>
