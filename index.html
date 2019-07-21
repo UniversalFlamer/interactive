@@ -11,7 +11,7 @@
       
       <div class="btn">
           <button class="button" style="width: 10%;" onclick="moveStart();">Move!</button>
-          <button class="button_stop" style="width:10%" onclick="clearInterval(timer);">Stop!</button>
+          <button class="button_stop" style="width:10%" onclick="myStop();">Stop!</button>
           <button style="width:10%" onclick="changeBackground(Math.random()*255,Math.random()*255,Math.random()*255);">Color switch!</button>
           <button style="width:10%" onclick="changeBackground(255,255,255);">Back to white!</button>
       </div>
@@ -63,10 +63,22 @@
         var speed_y = Math.random()*5+2;
         var timer;
         var background_timer;
+        var click_times = 0; 
+            
+        function myStop()
+            {
+                clearInterval(timer);
+                click_times = 0;
+            }
         function moveStart()
             {
+                  if(click_times<1)
+                      {
+                           timer = setInterval(toNextPosition,10,"text",500-68.59,485);
+                          click_times++;
+                      }
                 
-                  timer = setInterval(toNextPosition,10,"text",500-68.59,485);
+                 
             //    timer =  randomWalk("text",10,500-68,485);
              //   randomWalk("text2",10,500-68,485);
             }
