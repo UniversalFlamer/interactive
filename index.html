@@ -9,12 +9,7 @@
   <body >
       
       
-      <div class="btn">
-          <button class="button" style="width: 10%;" onclick="moveStart();">Move!</button>
-          <button class="button_stop" style="width:10%" onclick="myStop();">Stop!</button>
-          <button style="width:10%" onclick="changeBackground(Math.random()*255,Math.random()*255,Math.random()*255);">Color switch!</button>
-          <button style="width:10%" onclick="changeBackground(255,255,255);">Back to white!</button>
-      </div>
+     
       <div class="grid">
           
           <div class="flip_hello">
@@ -51,12 +46,19 @@
       
             <div class="flip_other">
             <div class="other_contents">Other</div>
-            <div class="other_contents">Coming later?</div>
+            <div class="other_contents"><a href="http://www.kisou.club">A tick in a tock.</a></div>
             </div>
       
       
       
       </div>   
+      
+       <div class="btn">
+          <button class="button" style="width: 10%;" onclick="moveStart();">Move!</button>
+          <button class="button_stop" style="width:10%" onclick="myStop();">Stop!</button>
+          <button style="width:10%" onclick="changeBackground(Math.random()*255,Math.random()*255,Math.random()*255);">Color switch!</button>
+          <button style="width:10%" onclick="changeBackground(255,255,255);">Back to white!</button>
+      </div>
   </body>
         <script>
         var speed_x = Math.random()*5+2;
