@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    
+    <link href="src/style.css" rel="stylesheet">
+    <body>
+        <div class="controller">
+              <input type="range" min="1" max="1000" value="1000" class="slider" id="frequency_slider" onchange="sliderOnchange();">
+        </div>
+        <div class="wrapper" id="canvas">
+        </div>
+    </body>
+    
+    <script type="text/javascript" src="./src/animation.js"></script>
+    <script src="src/initial.js"></script>
+    <script>
+        
+        var ROW_PIXEL_NUM = 10;
+        var COLUMN_PIXEL_NUM = 60;
+        
+        var RELATIVE_POSI_H1 = 0;
+        var RELATIVE_POSI_H0 = 10;
+        var RELATIVE_POSI_M1 = 20;
+        var RELATIVE_POSI_M0 = 30;
+        var RELATIVE_POSI_S1 = 40;
+        var RELATIVE_POSI_S0 = 50;
+        var slider_value = 5;
+        var timer;
+        
+        var today=new Date()
+        var h=today.getHours()
+        var m=today.getMinutes()
+        var s=today.getSeconds()
+        var s0,s1,m0,m1,h0,h1;
+        var i=0;
+        var j=0;
+        generateGrid(COLUMN_PIXEL_NUM,ROW_PIXEL_NUM);
+        setInterval(update_time,500);
+        timer = setInterval(update,1000,display_test_allnumber_10);
+    </script>
+</html>

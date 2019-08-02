@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+   
+   
+   
+    <head>
+        <link href="src/style.css" rel="stylesheet">
+        <link href="src/navigationbar.css" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="src/pixel_style_clock.png" />
+        <title>Tick in a tock.</title>
+    </head>
+    
+    
+    <body>
+      
+      
+      
+      <div class="menu_wrapper">
+          <input type='checkbox' id='sidemenu'>
+        
+            <aside>
+<!--
+                <h2>INFO</h2>
+                <br />
+-->
+                <ul id="sideul">
+                    <a href="index.html">
+                        <li>HOME</li>
+                    </a>
+                    <a href="description.html">
+                        <li>ABOUT</li>
+                    </a>
+                    <a href="record.html">
+                        <li><span class="mirror">TIMEMACHINE</span></li>
+                    </a>
+                    <a href="error.html">
+                        <li>???</li>
+                    </a>
+                    <a href="copyrights.html"><li>CREDITS</li></a>
+                </ul>
+            </aside>
+            <div id='menu-wrap'>
+            <label id='sideMenuControl' for='sidemenu'>i</label>
+            </div>
+        <!--Bind the element-->
+      </div>
+       
+      
+      
+      
+       <div class="clock_wrapper">
+          
+        
+           <div class="controller">
+              <input type="range" min="0" max="1000" value="1000" class="slider" id="frequency_slider" onchange="onChangeEvent();">
+            </div>
+            <div class="wrapper" id="canvas">
+            </div>
+       </div>
+        
+<!--        <button onclick="instantRefresh();"></button>-->
+   
+   
+   
+   
+    </body>
+    
+    
+    
+    
+    
+    <script type="text/javascript" src="./src/animation.js"></script>
+    <script src="src/initial.js"></script>
+    <script>
+        
+        var ROW_PIXEL_NUM = 12;
+        var COLUMN_PIXEL_NUM = 36;
+        
+        var RELATIVE_POSI_H1 = 0;
+        var RELATIVE_POSI_H0 = 6;
+        var RELATIVE_POSI_M1 = 12;
+        var RELATIVE_POSI_M0 = 18;
+        var RELATIVE_POSI_S1 = 24;
+        var RELATIVE_POSI_S0 = 30;
+        var slider_value = 1000;
+        var timer;
+        
+        var today=new Date()
+        var h=today.getHours()
+        var m=today.getMinutes()
+        var s=today.getSeconds()
+        var s0,s1,m0,m1,h0,h1;
+        var i=0;
+        var j=0;
+        generateGrid(COLUMN_PIXEL_NUM,ROW_PIXEL_NUM);
+        setInterval(update_time,500);
+        timer = setInterval(update,slider_value,displayAllInMyFont);
+        
+        
+        function onChangeEvent(){
+            
+            clearInterval(timer);
+            var elem = document.getElementById("frequency_slider");
+              slider_value = elem.value;
+            if(slider_value<4)
+                {
+                    timer = setInterval(instantRefresh,4);
+                }
+            else
+                {
+                      timer = setInterval(update,slider_value,displayAllInMyFont);
+                }
+
+        }
+    </script>
+    
+    
+    
+    
+</html>
