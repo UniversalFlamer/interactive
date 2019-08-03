@@ -1,0 +1,44 @@
+.times 
+{
+    display:flex;
+    margin:0 0;
+    width: 100%;
+}
+.times ul 
+{
+    margin-left:25px;
+    border-left:2px solid #ddd;  
+        margin-top: 0px;
+/*    //The line!*/
+}
+.times ul li 
+{
+    width:100%;
+    margin-left:-26px;
+
+    line-height:20px;
+}
+
+
+.times ul li span 
+{
+    padding-left:10px;
+    font-size:12px;
+    line-height:20px;
+    color:#555;
+    font-family: Courier;
+}
+
+.times ul li p 
+{
+    padding-left:15px;
+    font-size:14px;
+    line-height:25px;
+    font-family: Courier;
+}
+
+body{
+    display:flex;
+    flex-direction: row;
+    margin-top: 0;
+}
