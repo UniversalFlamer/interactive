@@ -1,4 +1,4 @@
-# Interactive Design: WorldWideWeb 2018
+# Interactive Design: WorldWideWeb 2019
 
 * This repo is for the course Introduction to Interactive Design:WorldWideWeb of Yale Summer Session 2019.
 * You can see my final project "Tick in a Tock" at kisou.club.
